@@ -1,0 +1,52 @@
+basePath: /api
+definitions:
+  dto.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  dto.SuccessResponse:
+    properties:
+      msg:
+        type: string
+    type: object
+host: 127.0.0.1:8777
+info:
+  contact: {}
+  description: API for Developers
+  title: Swagger API
+  version: 1.1.0
+paths:
+  /msg:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: name
+        in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/dto.SuccessResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
+      security:
+      - BasicAuth: []
+      summary: Information for API
+      tags:
+      - GroupA
+schemes:
+- http
+- https
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"
