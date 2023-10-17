@@ -25,7 +25,7 @@ func AuthMiddleware() gin.HandlerFunc {
 		if login == "admin" && password == "admin" {
 			ctx.Next()
 		} else {
-			ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "login or password incorrect"})
+			ctx.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"code": -103, "error": "login or password incorrect"})
 			return
 		}
 	}

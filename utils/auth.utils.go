@@ -12,7 +12,7 @@ func BasicAuthLogPass(basicAuth string) (login string, password string, err erro
 
 	decodedByte, err := base64.StdEncoding.DecodeString(base64Data)
 	if err != nil {
-		err = errors.New("ошибка получения логина и пароля")
+		err = errors.New("error receiving login and password")
 		return
 	}
 

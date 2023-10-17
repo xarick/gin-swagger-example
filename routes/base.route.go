@@ -14,6 +14,8 @@ import (
 func ApiRoutes() *gin.Engine {
 
 	route := gin.Default()
+
+	// [@BasePath  /api] 2-usuli
 	// docs.SwaggerInfo.BasePath = "/api"
 
 	route.GET("/", func(c *gin.Context) {

@@ -7,17 +7,18 @@ import (
 )
 
 // @Security 	BasicAuth
-// @Summary 	Information for API
+// @Summary 	Information about the method
 // @Tags 		GroupA
 // @Accept 		json
 // @Produce 	json
-// @Param 		name query string true "name"
+// @Param 		name query string true "enter a name"
 // @Success 	200 {object} dto.SuccessResponse
 // @Failure 	400 {object} dto.ErrorResponse
+// @Failure 	401 {object} dto.ErrorResponse
 // @Router 		/msg [get]
 func MSGController(c *gin.Context) {
 
-	// get name value
+	// qiymatni o'qish
 	name := c.Query("name")
 
 	c.JSON(http.StatusOK, gin.H{"Msg": "Hello " + name})

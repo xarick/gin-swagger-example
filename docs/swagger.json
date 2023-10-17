@@ -29,11 +29,11 @@
                 "tags": [
                     "GroupA"
                 ],
-                "summary": "Information for API",
+                "summary": "Information about the method",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "name",
+                        "description": "enter a name",
                         "name": "name",
                         "in": "query",
                         "required": true
@@ -51,6 +51,12 @@
                         "schema": {
                             "$ref": "#/definitions/dto.ErrorResponse"
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ErrorResponse"
+                        }
                     }
                 }
             }
@@ -60,6 +66,9 @@
         "dto.ErrorResponse": {
             "type": "object",
             "properties": {
+                "code": {
+                    "type": "integer"
+                },
                 "error": {
                     "type": "string"
                 }

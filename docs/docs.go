@@ -31,11 +31,11 @@ const docTemplate = `{
                 "tags": [
                     "GroupA"
                 ],
-                "summary": "Information for API",
+                "summary": "Information about the method",
                 "parameters": [
                     {
                         "type": "string",
-                        "description": "name",
+                        "description": "enter a name",
                         "name": "name",
                         "in": "query",
                         "required": true
@@ -53,6 +53,12 @@ const docTemplate = `{
                         "schema": {
                             "$ref": "#/definitions/dto.ErrorResponse"
                         }
+                    },
+                    "401": {
+                        "description": "Unauthorized",
+                        "schema": {
+                            "$ref": "#/definitions/dto.ErrorResponse"
+                        }
                     }
                 }
             }
@@ -62,6 +68,9 @@ const docTemplate = `{
         "dto.ErrorResponse": {
             "type": "object",
             "properties": {
+                "code": {
+                    "type": "integer"
+                },
                 "error": {
                     "type": "string"
                 }

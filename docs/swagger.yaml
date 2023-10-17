@@ -2,6 +2,8 @@ basePath: /api
 definitions:
   dto.ErrorResponse:
     properties:
+      code:
+        type: integer
       error:
         type: string
     type: object
@@ -22,7 +24,7 @@ paths:
       consumes:
       - application/json
       parameters:
-      - description: name
+      - description: enter a name
         in: query
         name: name
         required: true
@@ -38,9 +40,13 @@ paths:
           description: Bad Request
           schema:
             $ref: '#/definitions/dto.ErrorResponse'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/dto.ErrorResponse'
       security:
       - BasicAuth: []
-      summary: Information for API
+      summary: Information about the method
       tags:
       - GroupA
 schemes:
